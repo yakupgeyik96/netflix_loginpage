@@ -15,7 +15,10 @@ const FormInput = (props) => {
             width: width,
             height: height,
             paddingLeft: width * 0.07,
-        }, props.style]} 
+        }, props.style]}
+        type={props.type}
+        value={props.value}
+        onChangeText={props.onChangeText} 
         placeholder={props.placeholder}
         placeholderTextColor={props.placeholderTextColor} >
         </TextInput>
