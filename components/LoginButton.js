@@ -10,16 +10,13 @@ const LoginButton = (props) => {
     const height = screenheight * props.height;
 
     return (
-        <View style={[{
-            backgroundColor: props.color,
-            width : width,
-            height: height,
-        }, props.style]}>
-            <Text style={{
-                color: props.textColor,
-                fontSize: 18,
-                fontWeight:'bold'
-            }}>
+        <View style={[{ backgroundColor: props.color,
+                        width : width,
+                        height: height}, props.style]} >
+
+            <Text style={{ color: props.textColor,
+                           fontSize: 18,
+                           fontWeight:'bold'}} >
                 {props.value}
             </Text>
         </View>

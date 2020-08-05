@@ -11,7 +11,8 @@ const FormInput = (props) => {
 
     return (
         <TextInput style={[{
-            backgroundColor: props.color,
+            backgroundColor: props.backgroundcolor,
+            color: props.textColor,
             width: width,
             height: height,
             paddingLeft: width * 0.07,

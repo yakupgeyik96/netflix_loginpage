@@ -24,13 +24,12 @@ const Checkbox = (props) => {
                     justifyContent:'center'}}>
 
                     {props.status && <View
-                        style={{
-                            width:"90%",
-                            height: "90%",
-                            backgroundColor:'white',
-                            borderRadius:2,
-                        }}
-                    />}
+                                        style={{
+                                            width:"90%",
+                                            height: "90%",
+                                            borderRadius:2,
+                                            backgroundColor:'white'}}
+                                     />}
             </TouchableOpacity>
             <Text style={{
                 color:'#808080',

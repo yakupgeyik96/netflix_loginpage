@@ -9,17 +9,21 @@ const {width, height} = Dimensions.get('window');
 
 export default class App extends React.Component {
 
+  //{flex:1, alignItems: 'center'}
+
   state = {
     email: '',
     password: '',
-    rememberMe: false,
+    rememberMe: false
   };
 
   render() {
-    return (
-      <SafeAreaView style={styles.main_container} >
-        <ScrollView contentContainerStyle={{flex:1, alignItems: 'center'}}>
 
+    const {email, password, rememberMe} = this.state;
+
+    return (
+      <SafeAreaView style={styles.main_container}>
+        <ScrollView>
           <View style={styles.page_header}>
             <Image style={styles.image} source={require("./resources/netflix.png")}></Image>
           </View>
@@ -28,25 +32,28 @@ export default class App extends React.Component {
 
           <View style={styles.page_body}>
             <FormInput
-              color={"#333333"} 
+              backgroundcolor={"#333333"} 
               width={0.9} 
               height={0.065}
-              value={this.state.email}
+              value={email}
+              type='text'
+              textColor={'white'}
               placeholder="Email or phone number"
               placeholderTextColor={"#7a7a7a"}
               style={styles.form_input}
               onChangeText={(email) => {this.setState({email: email})}} />
 
             <FormInput
-              color={"#333333"} 
+              backgroundcolor={"#333333"} 
               width={0.9} 
               height={0.065}
-              value={this.state.password}
+              value={password}
               type="password" 
+              textColor={'white'}
               placeholder="Password"
               placeholderTextColor={"#7a7a7a"}
-              onChangeText={(value) => {this.setState({password: value})}}
-              style={styles.form_input} />
+              style={styles.form_input}
+              onChangeText={(value) => {this.setState({password: value})}} />
 
             <LoginButton
               color={"#E50712"} 
@@ -61,8 +68,9 @@ export default class App extends React.Component {
             <Checkbox 
               text='Remember me!'
               style={{marginLeft:width * 0.05}} 
-              onPress={() => {this.setState({rememberMe: !rememberMe})}} 
-              status={this.state.rememberMe} />
+              status={rememberMe}
+              onPress={() => this.setState({ rememberMe : !rememberMe})} />
+
             <TouchableOpacity activeOpacity={0.5} style={{marginLeft:182, marginTop:10}}>
               <Text style={{color:'#808080'}}>
                 Need Help?
@@ -107,26 +115,25 @@ const styles = StyleSheet.create({
     marginLeft: width * 0.001,
     alignSelf: 'flex-start',
   },
-  checkbox_line : {
-    flex : 0.05,
-    flexDirection : 'row',
-    width : width * 0.9,
-    marginTop : 10,
-    justifyContent : 'space-between'
-   },
   page_body: {
     flex:0.4,
     backgroundColor:'black',
     alignItems:'center',
     justifyContent: 'center',
-    //backgroundColor:'',
   },
+  checkbox_line : {
+    flex : 0.05,
+    alignSelf: 'center',
+    flexDirection : 'row',
+    width : width * 0.9,
+    marginTop : 10,
+    justifyContent : 'space-between'
+   },
   page_bottom : {
-    flex: 0.3,
+    alignSelf: 'center',
     alignItems:'flex-start',
     justifyContent:'center',
-    backgroundColor:'black',
-    marginTop: 40,
+    marginTop: height * 0.15,
     width: width * 0.9,
   },
   image: {
